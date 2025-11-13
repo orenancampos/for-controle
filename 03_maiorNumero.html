@@ -1,4 +1,11 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Maior Número</title>
+</head>
+<body>
 <script>
     /*
     PROBLEMA: MAIOR NÚMERO
@@ -6,17 +13,34 @@
     No final, apresente o maior número informado pelo usuário.
     */
 
-    let numeroUsuario= [];
+    const numeroUsuario = [];
 
-    for(let i = 0; i < 5; i++) {
-        let num = Number(prompt(`Informe o ${i + 1}º número:`));
-      numeroUsuario.push(num);
-       numeroUsuario.sort((a, b) => a - b);
+    for (let i = 0; i < 5; i++) {
+        const input = prompt(`Informe o ${i + 1}º número:`);
+        if (input === null) {
+            alert('Entrada cancelada. Operação abortada.');
+            // interrompe a execução do script sem quebrar o console
+            document.body.innerHTML = '<p>Entrada cancelada pelo usuário.</p>';
+            throw new Error('Entrada cancelada');
+        }
+
+        const num = Number(input.replace(',', '.'));
+        if (Number.isNaN(num)) {
+            alert('Valor inválido. Por favor informe um número.');
+            i--; // repetir esta iteração
+            continue;
+        }
+
+        numeroUsuario.push(num);
     }
 
-    let ultimo = numeroUsuario.slice(-1);
-    
-   
-    document.write(ultimo);
+    const maior = Math.max(...numeroUsuario);
+
+    document.body.innerHTML = `
+      <p>Números informados: ${numeroUsuario.join(', ')}</p>
+      <p><strong>Maior número:</strong> ${maior}</p>
+    `;
 
 </script>
+</body>
+</html>
