@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: TAXA DE CRESCIMENTO POPULACIONAL
+    Supondo que a população de um país seja da ordem de 80000 habitantes, com uma taxa anual de crescimento de 3%, identifique quantos anos serão necessários para que o número de habitandes atinja 200000 habitantes.
+    */
+
+    //ENTRADA
+    let qtanos = 0;
+    
+    //PROCESSAMENTO
+
+    for (let hab = 80000; hab < 200000; hab = hab * 1.03) {
+        qtanos = qtanos + 1
+    }
+    
+    //SAÍDA
+    document.write(qtanos);
+</script>
