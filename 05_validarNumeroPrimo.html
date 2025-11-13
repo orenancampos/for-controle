@@ -6,27 +6,26 @@
     */
 
     //ENTRADA
-
     const numeroUsuario = Number(prompt(`Informe um número`));
     let divisores = [];
 
-
     //PROCESSAMENTO
+    for (let numero = 1; numero <= numeroUsuario; numero++) {
+        let calculo = numeroUsuario / numero;
 
-    for (let num = 0; num <= numeroUsuario; num++){
-
-        let calculo = numeroUsuario/num;
-
-        if(calculo % 1 === 0){
-        divisores.push(num);
+        if (calculo % 1 === 0) {
+            divisores.push(numero);
         }
-
     }
-    if(divisores.length == 2){
-            alert(`O número ${numeroUsuario} é um número primo`);
-        } else{
-             alert(`O número ${numeroUsuario} não é um número primo`);
-        }
 
-    //SAÍDA
+    //condicionais & saída:
+    switch (divisores.length == 2) {
+        case true:
+            alert(`${numeroUsuario} é um número primo`);
+            break;
+
+        case false:
+            alert(`${numeroUsuario} não é um número primo`);
+            break;
+    }
 </script>

@@ -7,22 +7,18 @@
     */
 
     //ENTRADA
-    const numeroNotas= Number(prompt("Informe quantas notas o aluno obteve:"));
-    let notas = [];
-    let medias = 0;
+     const quantidadeNotas = Number(prompt("Informe quantas notas o aluno obteve:"));
+    let adicao = 0;
+
 
     //PROCESSAMENTO
-
-    for (let i = 0; i < qNotas; i++) {
-        const numeroNotas= Number(prompt(`Informe a ${i+1}º nota do aluno`));
-        notas.push(novaNota);
+   for (let i = 0; i < quantidadeNotas; i++) {
+        const nota = Number(prompt(`Informe a ${i + 1}º nota do aluno:`));
+        adicao += nota;
     }
-     for (let i = 0; i < notas.length; i++) {
-        medias += notas[i];
-     }
-     medias = medias / notas.length;
-     document.write(`${medias.toFixed(1)}`);
+
+    const mediaNotas = adicao / quantidadeNotas;
 
     //SAÍDA
-
+    document.write(mediaNotas.toFixed(1));
 </script>

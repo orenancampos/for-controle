@@ -5,22 +5,18 @@
     Faça um programa que leia 5 números e informe a soma e média dos números.
     */
 
-    const numeros = [];
-
-    for(let contador = 0 < contador < 5; contador++;) {
-        const num = Number(prompt(`Informe o ${contador + 1}º número.`))
-        numeros.push(num)
-    }
-
+    //ENTRADA
     let soma = 0;
-    let media = 0;
 
-    for (const num of numeros) {
-        soma += num;
+    //PROCESSAMENTO
+    for (let contador = 0; contador < 5; contador++) {
+        const numero = Number(prompt(`Informe o ${contador + 1}º número.`));
+        soma += numero;
     }
 
-    media = soma / 5;
+    const media = soma / 5;
 
-    document.write(`A soma dos números é ${soma}`);
-    document.write(`A media dos números é ${media}`);
+    //SAÍDA
+    document.write(`A soma dos números é ${soma} <br>`);
+    document.write(`A média dos números é ${media}`);
 </script>

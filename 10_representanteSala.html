@@ -1,5 +1,7 @@
 <meta charset="UTF-8">
 <script>
+    //QUESTÃO RESOLVIDA COM O PROF FÁ
+    
     /*
     PROBLEMA: REPRESENTANTE DE SALA
     Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
@@ -7,57 +9,41 @@
     Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos e também a porcentagem de votos de cada candidato a representante de sala.
     */
 
-
-    // apresentar: quem ganhou, quantos votos foram enviados e porcentagem de votos
     //ENTRADA
-    let candidatos = [];
-    for (let i = 0; i < 3; i++) {
-        const candidato = prompt(`Informe o ${i + 1}º candidato:`).toLowerCase();
-        candidatos.push(candidato);
-    }
-    let votantes = Number(prompt("Qual a quantidade de alunos votantes?"));
-   
-    let candUm = 0;
-    let candDois = 0;
-    let candTres = 0;
-    
+    const candidato01 = prompt(`Informe o nome do candidato 01:`);
+    const candidato02 = prompt(`Informe o nome do candidato 02:`);
+    const candidato03 = prompt(`Informe o nome do candidato 03:`);
+    const votantes = Number(prompt(`Informe a quantidade de alunos votantes:`));
+    let votos01 = 0;
+    let votos02 = 0;
+    let votos03 = 0;
+
     //PROCESSAMENTO
-    
-
-    for (let index = 0; index < votantes; index++) {
-        let voto = prompt(`Aluno ${index + 1}, em quem você quer votar? (${candidatos.join(" - ")})`).toLowerCase();
-
-
-        if (voto === candidatos[0]) {
-            candUm++
-        } else if (voto === candidatos[1]) {
-            candDois++
-        } else if (voto === candidatos[2]) {
-            candTres++
+    for (let i = 1; i <= votantes; i++) {
+        const voto = Number(prompt(`Informe o seu voto: \n1-${candidato01} \n2-${candidato02} \n3-${candidato03}`));
+        if (voto == 1) {
+            votos01 = votos01 + 1;
+        }
+        else if (voto == 2) {
+            votos02++;
+        }
+        else {
+            votos03 += 1;
         }
     }
 
-    let vencedor = "";
-        if (candUm > candDois && candUm > candTres) {
-            vencedor = candidatos[0];
-        } else if (candDois > candUm && candDois > candTres) {
-            vencedor = candidatos[1];
-        } else if (candTres > candDois && candTres > candUm) {
-            vencedor = candidatos[2];
-        } else {
-            vencedor = "Empate";
-        }
-
-    const percentUm = (candUm * 100) / votantes;
-        const percentDois = (candDois * 100) / votantes;
-        const percentTres = (candTres * 100) / votantes;
-
-    document.write(`O vencedor da eleição é o(a) candidato(a) ${vencedor}. <br>
-    Dados da votação: <br>
-    Houve ${votantes} votos. <br>
-    Candidato(a) ${candidatos[0]} recebeu ${percentUm.toFixed(2)} dos votos, totalizando ${candUm}. <br>
-    Candidato(a) ${candidatos[1]} recebeu ${percentDois.toFixed(2)} dos votos, totalizando ${candDois}. <br>
-    Candidato(a) ${candidatos[2]} recebeu ${percentTres.toFixed(2)} dos votos, totalizando ${candTres}.`)
     //SAÍDA
+    document.write(`O candidato ${candidato01} recebeu ${votos01} votos (${votos01 / votantes * 100}%)<br>`);
+    document.write(`O candidato ${candidato02} recebeu ${votos02} votos (${votos02 / votantes * 100}%)<br>`);
+    document.write(`O candidato ${candidato03} recebeu ${votos03} votos (${votos03 / votantes * 100}%)<br>`);
+    if (votos01 > votos02 && votos01 > votos03) {
+        document.write(`O candidato eleito foi: ${candidato01}`);
+    }
+    else if (votos02 > votos01 && votos02 > votos03) {
+        document.write(`O candidato eleito foi: ${candidato02}}`);
+    }
+    else {
+        document.write(`O candidato eleito foi ${candidato03}`);
+    }
 
 </script>

@@ -15,11 +15,12 @@
 
     for (let i = 0; i < listaDeLetras.length; i++) {
         const letra = listaDeLetras[i].toLowerCase();
-        if (minusculas.includes(letra) === false) {
-             minusculas.push(letra)
-        }
+
+        //talvez seja meio estranho pro leitor, mas estou me acostumando a colocar divisores (comentarios) pra facilitar a minha compreensão do código.
+
+        //condicionais:
+        minusculas.includes(letra) ? null : minusculas.push(letra);
     }
     
     document.write(minusculas.sort());
-    
 </script>
