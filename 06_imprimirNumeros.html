@@ -14,25 +14,27 @@
     let pares = [];
     let impares = [];
 
-     // PROCESSAMENTO
-    for (let i = numeroInicial + 1; i < numeroFinal; i++) {
-
-    //condicionais:
-        switch (i % 2) {
-            case 0:
-                pares.push(i);
-                break;
-
-            default:
-                impares.push(i);
-                break;
-        }
-    }
-
-    // SAÍDA E *MAISS* CONDICIONAIS :)
+    // condicionais e processamento:
     if (numeroInicial < numeroFinal) {
-        document.write(`Os números pares são ${pares.join(", ")} <br>`);
-        document.write(`Os números ímpares são ${impares.join(", ")}`);
+
+        // PROCESSAMENTO
+        for (let i = numeroInicial + 1; i < numeroFinal; i++) {
+
+            // condicionais:
+            switch (i % 2) {
+                case 0:
+                    pares.push(i);
+                    break;
+                default:
+                    impares.push(i);
+                    break;
+            }
+        }
+
+        // SAÍDA
+        document.write(`Os números pares são: ${pares.join(", ")} <br>`);
+        document.write(`Os números ímpares são: ${impares.join(", ")}`);
+
     } else {
         alert("O número inicial deve ser menor do que o número final.");
     }
